@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link for routing
 import "../../components/Footer/footer.css";
 
 const quickLinks01 = [
@@ -18,7 +19,7 @@ const quickLinks01 = [
 
 const quickLinks02 = [
   {
-    path: "#about",
+    path: "/about", // Route to the About page
     display: "About",
   },
   {
@@ -52,31 +53,57 @@ const Footer = () => {
   const [popupStyle, setPopupStyle] = useState({});
   const year = new Date().getFullYear();
 
-  const handleClick = (e) => {
+  const handleClick = (e, path) => {
     e.preventDefault();
-    const targetAttr = e.target.getAttribute("href");
 
-    if (targetAttr === "#home") {
+    if (path === "#home") {
       window.scrollTo({
         left: 0,
         top: 0,
         behavior: "smooth",
       });
+    } else if (path === "#services") {
+      // Scroll to Services section with a bit more space above
+      const servicesSection = document.getElementById("services");
+      if (servicesSection) {
+        const offset = servicesSection.offsetTop - 80; // Adjust the offset as needed
+        window.scrollTo({
+          left: 0,
+          top: offset,
+          behavior: "smooth",
+        });
+      }
+    } else if (path === "#testimonials") {
+      // Scroll to Testimonials section with a bit more space above
+      const testimonialsSection = document.getElementById("testimonials");
+      if (testimonialsSection) {
+        const offset = testimonialsSection.offsetTop - 80; // Adjust the offset as needed
+        window.scrollTo({
+          left: 0,
+          top: offset,
+          behavior: "smooth",
+        });
+      }
+    } else if (path === "/about") {
+      // Navigate to the About page
+      // You need to define the route for this in your main application using React Router
+      // Example: <Link to="/about">About</Link>
+      window.location.href = path;
     } else if (
-      targetAttr === "#team" ||
-      targetAttr === "#careers" ||
-      targetAttr === "#blog" ||
-      targetAttr === "#feedback"
+      path === "#team" ||
+      path === "#careers" ||
+      path === "#blog" ||
+      path === "#feedback"
     ) {
       setPopupMessage("Coming Soon");
       setPopupStyle({ top: e.clientY, left: e.clientX });
       setShowPopup(true);
       setTimeout(() => setShowPopup(false), 2000);
     } else {
-      const location = document.querySelector(targetAttr).offsetTop;
+      const location = document.querySelector(path).offsetTop;
       window.scrollTo({
         left: 0,
-        top: location - 80,
+        top: location - 80, // Adjust this value as needed
         behavior: "smooth",
       });
     }
@@ -97,7 +124,7 @@ const Footer = () => {
             <ul className="quick__links">
               {quickLinks01.map((item, index) => (
                 <li className="quick__link-item" key={index}>
-                  <a href={item.path} onClick={handleClick}>{item.display}</a>
+                  <a href={item.path} onClick={(e) => handleClick(e, item.path)}>{item.display}</a>
                 </li>
               ))}
             </ul>
@@ -108,7 +135,11 @@ const Footer = () => {
             <ul className="quick__links">
               {quickLinks02.map((item, index) => (
                 <li className="quick__link-item" key={index}>
-                  <a href={item.path} onClick={handleClick}>{item.display}</a>
+                  {item.path.startsWith("/") ? (
+                    <Link to={item.path} onClick={(e) => handleClick(e, item.path)}>{item.display}</Link>
+                  ) : (
+                    <a href={item.path} onClick={(e) => handleClick(e, item.path)}>{item.display}</a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -119,7 +150,7 @@ const Footer = () => {
             <ul className="quick__links">
               {quickLinks03.map((item, index) => (
                 <li className="quick__link-item" key={index}>
-                  <a href={item.path} onClick={handleClick}>{item.display}</a>
+                  <a href={item.path} onClick={(e) => handleClick(e, item.path)}>{item.display}</a>
                 </li>
               ))}
             </ul>

@@ -5,7 +5,7 @@ const serviceData = [
   {
     icon: "ri-apps-line",
     title: "Chat",
-    desc: "Chat with an AI Therapist that remembers,personalizes, and adapts to your unique interactions.",
+    desc: "Chat with an AI Therapist that remembers, personalizes, and adapts to your unique interactions.",
   },
   {
     icon: "ri-code-s-slash-line",
@@ -15,7 +15,7 @@ const serviceData = [
   {
     icon: "ri-landscape-line",
     title: "Personalization",
-    desc: "CheersAI's Therapist remembers you conversations in order to deliver personalized care.",
+    desc: "CheersAI's Therapist remembers your conversations in order to deliver personalized care.",
   },
   {
     icon: "ri-rocket-line",
@@ -26,7 +26,7 @@ const serviceData = [
 
 const Services = () => {
   return (
-    <section id="service">
+    <section id="services"> {/* Added id="services" */}
       <div className="container">
         <div className="service__top-content">
           <h6 className="subtitle">Our Services</h6>
@@ -38,7 +38,7 @@ const Services = () => {
           {serviceData.map((item, index) => (
             <div className="services__item" key={index}>
               <span className="service__icon">
-                <i class={item.icon}></i>
+                <i className={item.icon}></i> {/* Changed class to className */}
               </span>
               <h3 className="service__title">{item.title}</h3>
               <p className="description">{item.desc}</p>

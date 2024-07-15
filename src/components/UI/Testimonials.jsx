@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import "../../components/styles/testimonials.css";
+import "../styles/testimonials.css"; // Adjusted import path
 
 const Testimonials = () => {
   const settings = {
@@ -15,7 +15,7 @@ const Testimonials = () => {
   };
   
   return (
-    <section>
+    <section id="testimonials"> {/* Added id="testimonials" */}
       <div className="container">
         <div className="slider__content-top">
           <h6 className="subtitle">Testimonials</h6>
@@ -29,10 +29,7 @@ const Testimonials = () => {
           <Slider {...settings}>
             <div className="slider__item">
               <p className="description">
-                Without a doubt, this platform is great for people that want a 
-                companion by their side. There are some delays when speaking with 
-                an AI Therapist, but at least I can finally speak with one! I will 
-                continue to use this platform routinely for sure.
+                Without a doubt, this platform is great for people that want a companion by their side. There are some delays when speaking with an AI Therapist, but at least I can finally speak with one! I will continue to use this platform routinely for sure.
               </p>
               <div className="customer__details">
                 <div>
@@ -44,10 +41,7 @@ const Testimonials = () => {
 
             <div className="slider__item">
               <p className="description">
-                You know, I have always been hesitant to try
-                 out therapy involving AI. Suprisingly, this 
-                 platform has helped me out quite a bit. I love
-                  it! Can't wait to see more advancements. The best part is that the thearpist actually remembers what I say.
+                You know, I have always been hesitant to try out therapy involving AI. Surprisingly, this platform has helped me out quite a bit. I love it! Can't wait to see more advancements. The best part is that the therapist actually remembers what I say.
               </p>
               <div className="customer__details">
                 <div>
@@ -59,11 +53,7 @@ const Testimonials = () => {
 
             <div className="slider__item">
               <p className="description">
-              Absolutely, this platform has been a 
-              blessing for my son after everything he's 
-              been through. He finally has someone to talk 
-              to (someone he's not embarrassed to talk to)! I'd 
-              suggest parents consider using it, for themselves or their kids.
+                Absolutely, this platform has been a blessing for my son after everything he's been through. He finally has someone to talk to (someone he's not embarrassed to talk to)! I'd suggest parents consider using it, for themselves or their kids.
               </p>
               <div className="customer__details">
                 <div>
