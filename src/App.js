@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import "./App.css";
 import Footer from "./components/Footer/Footer";
-
 import Header from "./components/Header/Header";
 import About from "./components/UI/About";
 import Blog from "./components/UI/Blog";
@@ -14,14 +12,15 @@ import Team from "./components/UI/Team";
 import Testimonials from "./components/UI/Testimonials";
 
 function App() {
-  const [theme, setTheme] = useState("");
+  const [theme, setTheme] = useState("light-theme"); // Initialize with "light-theme"
 
   const toggleTheme = () => {
-    theme === "" ? setTheme("light-theme") : setTheme("");
+    // Toggle between light and dark theme
+    theme === "light-theme" ? setTheme("") : setTheme("light-theme");
   };
 
   useEffect(() => {
-    document.body.className = theme;
+    document.body.className = theme; // Set the class of <body> based on the theme state
   }, [theme]);
 
   return (
@@ -37,4 +36,3 @@ function App() {
 }
 
 export default App;
-

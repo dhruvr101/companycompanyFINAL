@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-
 import "./header.css";
 
 const nav__links = [
@@ -15,18 +14,14 @@ const nav__links = [
     path: "/contact",
     display: "Contact",
   },
-  
   {
     path: "/get-started",
     display: "Get Started",
   },
-  
 ];
-
 
 const Header = ({ theme, toggleTheme }) => {
   const headerRef = useRef(null);
-
   const menuRef = useRef(null);
 
   const headerFunc = () => {
@@ -51,12 +46,20 @@ const Header = ({ theme, toggleTheme }) => {
 
     const targetAttr = e.target.getAttribute("href");
 
-    const location = document.querySelector(targetAttr).offsetTop;
-
-    window.scrollTo({
-      left: 0,
-      top: location - 80,
-    });
+    if (targetAttr === "/") {
+      window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      const location = document.querySelector(targetAttr).offsetTop;
+      window.scrollTo({
+        left: 0,
+        top: location - 80,
+        behavior: "smooth",
+      });
+    }
   };
 
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
@@ -90,18 +93,18 @@ const Header = ({ theme, toggleTheme }) => {
             <span onClick={toggleTheme}>
               {theme === "light-theme" ? (
                 <span>
-                  <i class="ri-moon-line"></i>Dark
+                  <i className="ri-moon-line"></i>Dark
                 </span>
               ) : (
                 <span>
-                  <i class="ri-sun-line"></i>Light
+                  <i className="ri-sun-line"></i>Light
                 </span>
               )}
             </span>
           </div>
 
           <span className="mobile__menu" onClick={toggleMenu}>
-            <i class="ri-menu-line"></i>
+            <i className="ri-menu-line"></i>
           </span>
         </div>
       </div>
@@ -110,4 +113,3 @@ const Header = ({ theme, toggleTheme }) => {
 };
 
 export default Header;
-

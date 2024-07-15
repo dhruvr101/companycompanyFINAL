@@ -67,12 +67,12 @@
 
 @media only screen and (max-width: 768px) {
   .hero__content h2 {
-    font-style: 1.5rem;
+    font-size: 1.5rem;
     line-height: 45px;
   }
 
   .hero__content {
-    font-style: 0.9rem;
+    font-size: 0.9rem;
   }
 
   .primary__btn,
@@ -94,4 +94,9 @@
   .hero__wrapper {
     flex-direction: column;
   }
+
+  .hero__img {
+    margin-top: 45px; /* Adjust this value as needed */
+  }
 }
+

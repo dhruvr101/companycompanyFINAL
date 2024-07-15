@@ -4,23 +4,23 @@ import "../styles/services.css";
 const serviceData = [
   {
     icon: "ri-apps-line",
-    title: "App Development",
-    desc: "Lorem ipsum dolor sit Iste esse quod, quas ipsa cupiditate adipisci eius non commodi voluptas libero.",
+    title: "Chat",
+    desc: "Chat with an AI Therapist that remembers,personalizes, and adapts to your unique interactions.",
   },
   {
     icon: "ri-code-s-slash-line",
-    title: "Web Design",
-    desc: "Lorem ipsum dolor sit Iste esse quod, quas ipsa cupiditate adipisci eius non commodi voluptas libero.",
+    title: "Call",
+    desc: "Call our AI Therapist for a uniquely humanistic conversation tailored to your needs and preferences.",
   },
   {
     icon: "ri-landscape-line",
-    title: "Graphics Design",
-    desc: "Lorem ipsum dolor sit Iste esse quod, quas ipsa cupiditate adipisci eius non commodi voluptas libero.",
+    title: "Personalization",
+    desc: "CheersAI's Therapist remembers you conversations in order to deliver personalized care.",
   },
   {
     icon: "ri-rocket-line",
-    title: "Digital Marketing",
-    desc: "Lorem ipsum dolor sit Iste esse quod, quas ipsa cupiditate adipisci eius non commodi voluptas libero.",
+    title: "Security",
+    desc: "Your information with CheersAI is securely stored in our database. To delete it, simply contact us!",
   },
 ];
 
