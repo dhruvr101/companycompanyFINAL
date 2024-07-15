@@ -16,10 +16,9 @@ const Newsletter = () => {
       <div className="container">
         <div className="newsletter__wrapper">
           <div className="newsletter__content">
-            <h6 className="subtitle">Let's work</h6>
+            <h6 className="subtitle">Subscribe Now</h6>
             <h2>
-              Explore the <span className="highlight">hidden</span> ideas and
-              subscribe!
+              Embrace new insights and join our <span className="highlight">evolving</span> platform!
             </h2>
           </div>
 
