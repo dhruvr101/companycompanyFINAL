@@ -24,14 +24,14 @@ const nav__links = [
 
 const Header = ({ theme, toggleTheme }) => {
   const headerRef = useRef(null);
-  const menuRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   const headerFunc = () => {
-    if (
-      document.body.scrollTop > 80 ||
-      document.documentElement.scrollTop > 80
-    ) {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
       headerRef.current.classList.add("header__shrink");
     } else {
       headerRef.current.classList.remove("header__shrink");
@@ -40,62 +40,55 @@ const Header = ({ theme, toggleTheme }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", headerFunc);
-
     return () => window.removeEventListener("scroll", headerFunc);
   }, []);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <header className="header" ref={headerRef}>
-      <div className="container">
-        <div className="nav__wrapper">
-          <div className="logo">
-            <img src={cheersAILogo} alt="CheersAI Logo" className="logo__image" />
-            <h2>CheersAI</h2>
-          </div>
-          {/* Navigation */}
-          <div className={`navigation ${menuOpen ? 'menu__active' : ''}`} ref={menuRef}>
-            <ul className="menu">
-              {nav__links.map((item, index) => (
-                <li className="menu__item" key={index}>
-                  <Link 
-                    to={item.path} 
-                    className="menu__link"
-                    onClick={item.path === "/" ? scrollToTop : null}
-                  >
-                    {item.display}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <header className={`header ${menuOpen ? 'header__open' : ''}`} ref={headerRef}>
+      <div className="nav__wrapper">
+        <div className="logo">
+          <img src={cheersAILogo} alt="CheersAI Logo" className="logo__image" />
+          <h2>CheersAI</h2>
+        </div>
+        {/* Navigation */}
+        <nav className={`navigation ${menuOpen ? 'menu__active' : ''}`}>
+          <ul className="menu">
+            {nav__links.map((item, index) => (
+              <li className="menu__item" key={index}>
+                <Link 
+                  to={item.path} 
+                  className={`menu__link ${theme === "light-theme" ? "light-menu__link" : ""}`}
+                  onClick={item.path === "/" ? scrollToTop : null}
+                >
+                  {item.display}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-          {/* Light Mode */}
-          <div className="light__mode">
-            <span onClick={toggleTheme}>
-              {theme === "light-theme" ? (
-                <span>
-                  <i className="ri-moon-line"></i>Dark
-                </span>
-              ) : (
-                <span>
-                  <i className="ri-sun-line"></i>Light
-                </span>
-              )}
-            </span>
-          </div>
-
-          <span className="mobile__menu" onClick={toggleMenu}>
-            <i className="ri-menu-line"></i>
+        {/* Light Mode */}
+        <div className="light__mode">
+          <span onClick={toggleTheme}>
+            {theme === "light-theme" ? (
+              <span>
+                <i className="ri-moon-line"></i>Dark
+              </span>
+            ) : (
+              <span>
+                <i className="ri-sun-line"></i>Light
+              </span>
+            )}
           </span>
         </div>
+
+        <span className="mobile__menu" onClick={toggleMenu}>
+          <i className="ri-menu-line"></i>
+        </span>
       </div>
     </header>
   );
