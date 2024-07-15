@@ -4,26 +4,19 @@ import "./header.css";
 
 const nav__links = [
   {
-    path: "#home",
+    path: "/",
     display: "Home",
   },
   {
-    path: "#about",
+    path: "/about",
     display: "About",
   },
   {
-    path: "#service",
-    display: "Service",
-  },
-  {
-    path: "#projects",
-    display: "Projects",
-  },
-  {
-    path: "#blog",
-    display: "Blog",
+    path: "/get-started",
+    display: "Get Started",
   },
 ];
+
 
 const Header = ({ theme, toggleTheme }) => {
   const headerRef = useRef(null);
