@@ -99,19 +99,21 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 608px) {
   .footer__logo {
     width: 50%;
   }
 
   .footer__wrapper {
     flex-wrap: wrap;
-    column-gap: 1.5rem !important;
-    row-gap: 1.5rem;
+    column-gap: 1rem !important;
+    row-gap: 0.5rem;
+    margin-left: 10px;
   }
 
   .footer__logo h2 {
     font-size: 1.5rem;
+    
   }
 
   .popup {
@@ -121,6 +123,7 @@
     transform: translateX(-50%);
     padding: 8px 16px; /* Adjust padding for smaller size */
     font-size: 0.85rem; /* Adjust font size for smaller screens */
+    height: 40px;
   }
 }
 

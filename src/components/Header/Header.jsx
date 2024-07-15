@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./header.css";
 
 const nav__links = [
@@ -23,6 +23,7 @@ const nav__links = [
 const Header = ({ theme, toggleTheme }) => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const headerFunc = () => {
     if (
@@ -62,7 +63,9 @@ const Header = ({ theme, toggleTheme }) => {
     }
   };
 
-  const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <header className="header" ref={headerRef}>
@@ -72,7 +75,7 @@ const Header = ({ theme, toggleTheme }) => {
             <h2>CheersAI</h2>
           </div>
           {/* --navigation-- */}
-          <div className="navigation" ref={menuRef} onClick={toggleMenu}>
+          <div className={`navigation ${menuOpen ? 'menu__active' : ''}`} ref={menuRef}>
             <ul className="menu">
               {nav__links.map((item, index) => (
                 <li className="menu__item" key={index}>

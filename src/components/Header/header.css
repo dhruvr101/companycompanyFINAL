@@ -79,38 +79,25 @@
 @media only screen and (max-width: 992px) {
   .menu {
     display: none;
-  }
-
-  .dropdown__menu {
-    display: none;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
-    top: 80px;
-    right: 10px;
-    background: #b67241;
-    list-style: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(12, 18, 61, 0.9);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+    z-index: 999;
   }
 
-  .dropdown__menu-active {
-    display: block;
+  .menu__active {
+    transform: translateY(0);
   }
 
-  .dropdown__menu-item {
-    padding: 10px 20px;
-  }
-
-  .dropdown__menu-link {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    font-size: 0.9rem;
-  }
-
-  .dropdown__menu-link:hover {
-    background: var(--link-active);
-    color: #fff;
-    border-radius: 5px;
+  .menu__item {
+    margin: 20px 0;
   }
 
   .mobile__menu {
@@ -150,4 +137,3 @@
 .menu__item:last-child {
   padding-left: 1rem; /* Add padding instead of margin */
 }
-
