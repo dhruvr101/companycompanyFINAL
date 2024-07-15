@@ -22,6 +22,7 @@
 
 .nav__wrapper {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
 }
@@ -116,26 +117,34 @@
 /* Responsive */
 @media only screen and (max-width: 992px) {
   .menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 55px; /* Adjusted to match the new header height */
+    top: 15.5rem; /* Adjusted to match the new header height */
     left: 0;
     width: 100%;
-    background: rgba(12, 18, 61, 0.9); /* Update background */
+    column-gap: 2px;
+    background: rgb(233, 236, 255); /* Update background */
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%);
     z-index: 999;
+    border-radius: 8px;
   }
-
+  
   .menu__active {
     display: flex;
     transform: translateY(0);
   }
 
   .menu__item {
-    margin: 10px 0;
+    margin:  0;
+    height: 3rem;
+  }
+
+  /* To hide links if sidebar menu is not open in small screen  */
+  .menu__item__hide {
+    display: none;
   }
 
   .mobile__menu {

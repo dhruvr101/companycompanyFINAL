@@ -55,13 +55,13 @@ const Header = ({ theme, toggleTheme }) => {
           <h2>CheersAI</h2>
         </div>
         {/* Navigation */}
-        <nav className={`navigation ${menuOpen ? 'menu__active' : ''}`}>
-          <ul className="menu">
+        <nav className={` ${menuOpen ? 'menu__active' : ''}`}  >
+          <ul className={`menu`}>
             {nav__links.map((item, index) => (
-              <li className="menu__item" key={index}>
+              <li className={`menu__item`} key={index}>
                 <Link 
                   to={item.path} 
-                  className={`menu__link ${theme === "light-theme" ? "light-menu__link" : ""}`}
+                  className={`${!menuOpen?'menu__link' :'menu__item__hide'} ${theme === "light-theme" ? "light-menu__link" : ""}`}
                   onClick={item.path === "/" ? scrollToTop : null}
                 >
                   {item.display}
