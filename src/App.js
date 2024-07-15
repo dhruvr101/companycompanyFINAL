@@ -30,6 +30,7 @@ function App() {
       <Counter />
       <Services />
       <Testimonials />
+      <Newsletter />
       <Footer />
     </>
   );
