@@ -24,14 +24,14 @@ const nav__links = [
 
 const Header = ({ theme, toggleTheme }) => {
   const headerRef = useRef(null);
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false); // Initialize as false initially
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   const closeMenu = () => {
-    setMenuOpen(true);
+    setMenuOpen(true); // Ensure menu closes when explicitly called to close
   };
 
   const headerFunc = () => {
@@ -43,16 +43,32 @@ const Header = ({ theme, toggleTheme }) => {
   };
 
   useEffect(() => {
-    // Ensure menu is closed initially on component mount
-    setMenuOpen(false);
-  
     // Add scroll listener
     window.addEventListener("scroll", headerFunc);
-  
+
     // Clean up listener on component unmount
     return () => window.removeEventListener("scroll", headerFunc);
   }, []);
-  
+
+  // Check screen width and set initial menuOpen state accordingly
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 992) {
+        setMenuOpen(true); // Open menu on smaller screens by default
+      } else {
+        setMenuOpen(false); // Close menu on larger screens by default
+      }
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Clean up listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
