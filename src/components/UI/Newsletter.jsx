@@ -10,7 +10,7 @@ const Newsletter = () => {
       setShowThankYou(false);
     }, 3000); // Hide the thank you message after 3 seconds
   };
-
+//hi
   return (
     <section className="newsletter">
       <div className="container">
