@@ -2,14 +2,14 @@
 .header {
   width: 60%;
   margin: 0 auto;
-  height: 50px;
-  line-height: 50px;
+  height: 55px; /* Changed from 50px to 55px */
+  line-height: 55px; /* Changed from 50px to 55px */
   position: sticky;
-  top: 10px; /* Gives it some space from the top */
+  top: 10px;
   left: 0;
   right: 0;
   background: #0c123d;
-  border-radius: 25px; /* Makes it more compact */
+  border-radius: 25px;
   z-index: 9999;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -83,8 +83,8 @@
 
 .header__shrink {
   width: 60%;
-  height: 50px;
-  line-height: 50px;
+  height: 55px; /* Changed from 50px to 55px */
+  line-height: 55px; /* Changed from 50px to 55px */
   position: sticky;
   top: 10px;
   left: 0;
@@ -120,7 +120,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 50px; /* Adjust based on your header height */
+    top: 55px; /* Adjusted to match the new header height */
     left: 0;
     width: 100%;
     background: rgba(12, 18, 61, 0.9); /* Update background */
@@ -146,17 +146,17 @@
 @media only screen and (max-width: 768px) {
   .header {
     width: 80%;
-    height: 40px;
-    line-height: 40px;
+    height: 50px; /* Slightly increased from 40px */
+    line-height: 50px; /* Slightly increased from 40px */
     border-radius: 20px;
   }
 
   .mobile__menu {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Slightly increased from 1rem */
   }
 
   .logo h2 {
-    font-size: 0.8rem;
+    font-size: 0.9rem; /* Slightly increased from 0.8rem */
   }
 }
 
