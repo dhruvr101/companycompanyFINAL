@@ -40,8 +40,10 @@
 
 .customer__name {
   font-size: 1.2rem;
-  color: white;
   font-weight: 500;
+  background: linear-gradient(90deg, #00c853, #b2ff59); /* Green gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media only screen and (max-width: 992px) {
@@ -58,4 +60,37 @@
   .customer__name {
     font-size: 1rem;
   }
+}
+
+/* Slider buttons */
+.slider__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--slider-button-bg);
+  color: var(--slider-button-color);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider__button--left {
+  left: 10px;
+}
+
+.slider__button--right {
+  right: 10px;
+}
+
+/* Light theme */
+.light-theme .slider__button {
+  background: #9c4eff; /* Purple background */
+  color: #ffffff; /* White text */
+}
+
+/* Dark theme */
+.dark-theme .slider__button {
+  background: #fff; /* White background */
+  color: #000; /* Black text */
 }

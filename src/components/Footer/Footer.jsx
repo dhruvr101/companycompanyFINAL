@@ -53,7 +53,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__wrapper">
           <div className="footer__logo">
-            <h2>Blueprint</h2>
+            <h2>CheersAI</h2>
             <p className="description">Grow with us</p>
 
             <p className="small__text description">
@@ -104,3 +104,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

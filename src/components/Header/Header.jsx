@@ -12,9 +12,15 @@ const nav__links = [
     display: "About",
   },
   {
+    path: "/contact",
+    display: "Contact",
+  },
+  
+  {
     path: "/get-started",
     display: "Get Started",
   },
+  
 ];
 
 
@@ -60,7 +66,7 @@ const Header = ({ theme, toggleTheme }) => {
       <div className="container">
         <div className="nav__wrapper">
           <div className="logo">
-            <h2>Blueprint</h2>
+            <h2>CheersAI</h2>
           </div>
           {/* --navigation-- */}
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
@@ -104,3 +110,4 @@ const Header = ({ theme, toggleTheme }) => {
 };
 
 export default Header;
+
