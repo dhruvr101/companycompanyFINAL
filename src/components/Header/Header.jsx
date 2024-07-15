@@ -1,13 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./header.css";
 
 const nav__links = [
   {
-    path: "/",
+    path: "/", // Updated path for Home
     display: "Home",
   },
   {
-    path: "/about",
+    path: "/about", // Updated path for About
     display: "About",
   },
   {
@@ -42,28 +43,6 @@ const Header = ({ theme, toggleTheme }) => {
     return () => window.removeEventListener("scroll", headerFunc);
   }, []);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-
-    const targetAttr = e.target.getAttribute("href");
-
-    if (targetAttr === "/") {
-      window.scrollTo({
-        left: 0,
-        top: 0,
-        behavior: "smooth",
-      });
-    } else {
-      const location = document.querySelector(targetAttr).offsetTop;
-      window.scrollTo({
-        left: 0,
-        top: location - 80,
-        behavior: "smooth",
-      });
-    }
-    setMenuOpen(false); // Close the menu after clicking a link
-  };
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -80,13 +59,9 @@ const Header = ({ theme, toggleTheme }) => {
             <ul className="menu">
               {nav__links.map((item, index) => (
                 <li className="menu__item" key={index}>
-                  <a
-                    href={item.path}
-                    onClick={handleClick}
-                    className="menu__link"
-                  >
+                  <Link to={item.path} className="menu__link">
                     {item.display}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,0 +1,99 @@
+/* newAbout.css */
+
+#about {
+    padding: 50px 20px;
+}
+
+.about__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.left__content {
+    flex: 1;
+    max-width: 400px;
+    padding-right: 20px;
+}
+
+.left__content h1 {
+    font-size: 4rem;
+    font-weight: 900; /* Extra bold */
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.right__content {
+    flex: 2;
+    max-width: 700px;
+    padding-left: 20px;
+}
+
+.right__content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700; /* Bold */
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient text effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.right__content h3 {
+    font-size: 2rem;
+    font-weight: 700; /* Bold */
+    color: #0072ff;
+    margin-bottom: 20px;
+}
+
+.right__content p {
+    font-size: 1.5rem;
+    line-height: 1.75;
+    color: #000000; /* Black text */
+    margin-bottom: 20px;
+    font-weight: 500; /* Semi-bold for better readability */
+}
+
+@media only screen and (max-width: 992px) {
+    .about__container {
+        flex-direction: column;
+    }
+
+    .left__content {
+        max-width: 100%;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .right__content {
+        max-width: 100%;
+        padding-left: 0;
+    }
+
+    .left__content h1 {
+        font-size: 3rem;
+    }
+
+    .right__content h2 {
+        font-size: 2rem;
+    }
+
+    .right__content p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Dark Theme */
+body.dark-theme #about {
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+}
+
+/* Specific adjustment for smaller text */
+body.dark-theme #about .right__content p {
+    color: #ffffff; /* White text for smaller paragraphs */
+}
