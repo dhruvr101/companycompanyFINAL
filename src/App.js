@@ -43,7 +43,7 @@ const Home = ({ theme }) => (
         <Counter />
         <Services />
         <Testimonials />
-        <Newsletter />
+       
     </>
 );
 

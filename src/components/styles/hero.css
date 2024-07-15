@@ -91,12 +91,30 @@
   .hero__img {
     width: 100%;
   }
+  
   .hero__wrapper {
     flex-direction: column;
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Center text horizontally */
   }
 
   .hero__img {
-    margin-top: 45px; /* Adjust this value as needed */
+    margin-top: 45px; /* Adjust as needed */
+  }
+
+  .hero__content h2 {
+    font-size: 2.5rem; /* Increase font size for emphasis */
+    line-height: 1; /* Reset line height */
+    margin-bottom: 10px; /* Add spacing between title and other content */
+  }
+
+  .hero__btns {
+    margin-top: 20px; /* Adjust as needed */
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
   }
 }
+
+
+
 

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
+import cheersAILogo from "../images/CheersAI.png"; // Adjust the path as per your project structure
 
 const nav__links = [
   {
@@ -47,11 +48,16 @@ const Header = ({ theme, toggleTheme }) => {
     setMenuOpen(!menuOpen);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="header" ref={headerRef}>
       <div className="container">
         <div className="nav__wrapper">
           <div className="logo">
+            <img src={cheersAILogo} alt="CheersAI Logo" className="logo__image" />
             <h2>CheersAI</h2>
           </div>
           {/* Navigation */}
@@ -59,7 +65,11 @@ const Header = ({ theme, toggleTheme }) => {
             <ul className="menu">
               {nav__links.map((item, index) => (
                 <li className="menu__item" key={index}>
-                  <Link to={item.path} className="menu__link">
+                  <Link 
+                    to={item.path} 
+                    className="menu__link"
+                    onClick={item.path === "/" ? scrollToTop : null}
+                  >
                     {item.display}
                   </Link>
                 </li>

@@ -29,6 +29,17 @@
   color: var(--link-active);
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  width: 30px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px; /* Add spacing between logo and text */
+}
+
 .logo h2 {
   color: var(--primary-color);
 }
@@ -118,7 +129,7 @@
 
   .logo h2 {
     font-size: 1.3rem;
-  } 
+  }
 }
 
 /* Get Started Button */
