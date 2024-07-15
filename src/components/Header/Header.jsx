@@ -61,6 +61,7 @@ const Header = ({ theme, toggleTheme }) => {
         behavior: "smooth",
       });
     }
+    setMenuOpen(false); // Close the menu after clicking a link
   };
 
   const toggleMenu = () => {
@@ -74,7 +75,7 @@ const Header = ({ theme, toggleTheme }) => {
           <div className="logo">
             <h2>CheersAI</h2>
           </div>
-          {/* --navigation-- */}
+          {/* Navigation */}
           <div className={`navigation ${menuOpen ? 'menu__active' : ''}`} ref={menuRef}>
             <ul className="menu">
               {nav__links.map((item, index) => (
@@ -91,7 +92,7 @@ const Header = ({ theme, toggleTheme }) => {
             </ul>
           </div>
 
-          {/* --light mode-- */}
+          {/* Light Mode */}
           <div className="light__mode">
             <span onClick={toggleTheme}>
               {theme === "light-theme" ? (
