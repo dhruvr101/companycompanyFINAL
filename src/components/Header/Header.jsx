@@ -24,14 +24,14 @@ const nav__links = [
 
 const Header = ({ theme, toggleTheme }) => {
   const headerRef = useRef(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   const closeMenu = () => {
-    setMenuOpen(false);
+    setMenuOpen(true);
   };
 
   const headerFunc = () => {
@@ -43,9 +43,16 @@ const Header = ({ theme, toggleTheme }) => {
   };
 
   useEffect(() => {
+    // Ensure menu is closed initially on component mount
+    setMenuOpen(false);
+  
+    // Add scroll listener
     window.addEventListener("scroll", headerFunc);
+  
+    // Clean up listener on component unmount
     return () => window.removeEventListener("scroll", headerFunc);
   }, []);
+  
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
