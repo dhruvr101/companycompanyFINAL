@@ -30,6 +30,10 @@ const Header = ({ theme, toggleTheme }) => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const headerFunc = () => {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
       headerRef.current.classList.add("header__shrink");
@@ -55,14 +59,17 @@ const Header = ({ theme, toggleTheme }) => {
           <h2>CheersAI</h2>
         </div>
         {/* Navigation */}
-        <nav className={` ${menuOpen ? 'menu__active' : ''}`}  >
+        <nav className={` ${menuOpen ? 'menu__active' : ''}`}>
           <ul className={`menu`}>
             {nav__links.map((item, index) => (
               <li className={`menu__item`} key={index}>
                 <Link 
                   to={item.path} 
-                  className={`${!menuOpen?'menu__link' :'menu__item__hide'} ${theme === "light-theme" ? "light-menu__link" : ""}`}
-                  onClick={item.path === "/" ? scrollToTop : null}
+                  className={`${!menuOpen ? 'menu__link' : 'menu__item__hide'} ${theme === "light-theme" ? "light-menu__link" : ""}`}
+                  onClick={() => { 
+                    closeMenu(); 
+                    if (item.path === "/") scrollToTop(); 
+                  }}
                 >
                   {item.display}
                 </Link>

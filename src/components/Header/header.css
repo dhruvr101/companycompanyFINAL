@@ -125,11 +125,19 @@
     left: 0;
     width: 100%;
     column-gap: 2px;
-    background: rgb(233, 236, 255); /* Update background */
+    background: rgb(233, 236, 255); /* Default light theme background */
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%);
     z-index: 999;
     border-radius: 8px;
+  }
+
+  .light-theme .menu {
+    background: rgb(233, 236, 255); /* Light theme background */
+  }
+  
+  .dark-theme .menu {
+    background: #000; /* Dark theme background */
   }
   
   .menu__active {
@@ -138,7 +146,7 @@
   }
 
   .menu__item {
-    margin:  0;
+    margin: 0;
     height: 3rem;
   }
 
